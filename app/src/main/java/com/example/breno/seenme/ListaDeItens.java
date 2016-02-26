@@ -1,12 +1,14 @@
 package com.example.breno.seenme;
 
+import android.app.Activity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaDeItens {
+public class ListaDeItens extends Activity {
      List<ItemCultural> listaDeItensCulturais = new ArrayList<>();
 
-    public List<ItemCultural> getListaDeItens() {
+    public List<ItemCultural> getListaDeItens(){
         return listaDeItensCulturais;
     }
 }
