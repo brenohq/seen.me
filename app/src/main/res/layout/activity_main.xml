@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.breno.novocurso.MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Filme"
+        android:id="@+id/botaoCadastrarFilme"
+        android:textAlignment="center"
+        android:onClick="startCadastraFilme"
+        android:layout_alignTop="@+id/botaoCadastrarLivro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Livro"
+        android:id="@+id/botaoCadastrarLivro"
+        android:textAlignment="center"
+        android:onClick="startCadastraLivro"
+        android:layout_above="@+id/botaoVerItensCadastrados"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Itens Cadastrados"
+        android:id="@+id/botaoVerItensCadastrados"
+        android:onClick="startCadastrados"
+        android:layout_marginBottom="76dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignWithParentIfMissing="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="seen.me"
+        android:id="@+id/textView4"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:password="false"
+        android:phoneNumber="false"
+        android:textSize="120px"
+        android:layout_marginTop="113dp"
+        android:textColorHighlight="#3f51b4"
+        android:textColorHint="#3f51b4"
+        android:textColorLink="#3f51b4"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
