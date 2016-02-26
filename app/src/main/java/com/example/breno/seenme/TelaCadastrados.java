@@ -12,7 +12,6 @@ public class TelaCadastrados extends ListaDeItens {
 
         ListView listview = (ListView) findViewById(R.id.listaDeItensCadastrados);
         ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, getListaDeItens());
-
         listview.setAdapter(arrayAdapter);
     }
 }
