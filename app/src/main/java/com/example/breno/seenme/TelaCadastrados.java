@@ -1,6 +1,5 @@
 package com.example.breno.seenme;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
