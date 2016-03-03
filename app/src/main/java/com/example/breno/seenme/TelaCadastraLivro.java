@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 
 public class TelaCadastraLivro extends AppCompatActivity {
 
@@ -15,6 +17,10 @@ public class TelaCadastraLivro extends AppCompatActivity {
         final EditText nomeDoLivro, genero, ano, autor, descricao, idioma, editora, edicao;
         Button cadastrar;
         final RatingBar avaliacao;
+        final Spinner spinnerLivro;
+        final CheckBox checkBoxLivro;
+
+        final RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastra_livro);
@@ -29,23 +35,27 @@ public class TelaCadastraLivro extends AppCompatActivity {
         avaliacao = (RatingBar) findViewById(R.id.avaliacao);
         editora = (EditText) findViewById(R.id.editora);
         edicao = (EditText) findViewById(R.id.edicao);
+        spinnerLivro = (Spinner) findViewById(R.id.spinnerLivro);
+        checkBoxLivro = (CheckBox) findViewById(R.id.checkBoxLivro);
         final Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
-        final Livro livro = new Livro();
+
+        checkBoxLivro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxLivro.isChecked()){
+                    avaliacao.setVisibility(View.VISIBLE);
+                }else{
+                    avaliacao.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         cadastrar.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
-                        livro.setNome(nomeDoLivro.getText().toString());
-                        livro.setGenero(genero.getText().toString());
-                        livro.setAno(ano.getText().toString());
-                        livro.setAutor(autor.getText().toString());
-                        livro.setDescricao(descricao.getText().toString());
-                        livro.setIdioma(idioma.getText().toString());
-                        livro.setAvaliacao(avaliacao.getNumStars());
-                        livro.setEditora(editora.getText().toString());
-                        livro.setEdicao(edicao.getText().toString());
-                        livro.cadastrar(livro);
-
+                        regraDeNegocioSingleton.cadastrarLivro(nomeDoLivro.getText().toString(), genero.getText().toString(), ano.getText().toString(),
+                                autor.getText().toString(), descricao.getText().toString(), idioma.getText().toString(), editora.getText().toString(),
+                                edicao.getText().toString(), avaliacao.getRating(), spinnerLivro.getSelectedItemPosition()+1, checkBoxLivro.isChecked());
                         startActivity(retornaMainActivity);
                     }
                 });

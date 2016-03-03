@@ -1,6 +1,8 @@
 package com.example.breno.seenme;
 
-public class Livro extends ItemCultural {
+import java.io.Serializable;
+
+public class Livro extends ItemCultural implements Serializable{
     private int numeroDePaginas;
     private String dataDaPublicacao;
     private String tipoDeCapa;
@@ -8,7 +10,7 @@ public class Livro extends ItemCultural {
     private String editora;
 
 
-    public Livro() {
+    public Livro(){
     }
 
     public int getNumeroDePaginas() {

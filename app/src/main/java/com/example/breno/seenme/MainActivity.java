@@ -4,6 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
+
+        /*try {
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("arquivo.txt"));
+            regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais() = (List<ItemCultural>) entrada.readObject();
+            entrada.close();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }*/
     }
 
     public void startCadastraFilme(View view) {
@@ -27,5 +46,4 @@ public class MainActivity extends AppCompatActivity {
         Intent telaCadastrados = new Intent(this, TelaCadastrados.class);
         startActivity(telaCadastrados);
     }
-
 }

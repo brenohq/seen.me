@@ -1,13 +1,15 @@
 package com.example.breno.seenme;
 
-public abstract class ItemCultural extends ListaDeItens implements UsaLista {
+import java.io.Serializable;
+
+public abstract class ItemCultural implements Serializable {
     private String nome;
     private String genero;
     private String ano;
     private String autor;
     private String descricao;
-    private int classificacaoIndicativa;
-    private int avaliacao;
+    private String classificacaoIndicativa;
+    private float avaliacao;
     private int prioridade;
     private boolean consumido;
     private String protagonistas;
@@ -55,11 +57,11 @@ public abstract class ItemCultural extends ListaDeItens implements UsaLista {
         this.autor = autor;
     }
 
-    public int getClassificacaoIndicativa() {
+    public String getClassificacaoIndicativa() {
         return classificacaoIndicativa;
     }
 
-    public void setClassificacaoIndicativa(int classificacaoIndicativa) {
+    public void setClassificacaoIndicativa(String classificacaoIndicativa) {
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
@@ -79,11 +81,11 @@ public abstract class ItemCultural extends ListaDeItens implements UsaLista {
         this.consumido = consumido;
     }
 
-    public int getAvaliacao() {
+    public float getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(int avaliacao) {
+    public void setAvaliacao(float avaliacao) {
         this.avaliacao = avaliacao;
     }
 
@@ -118,42 +120,6 @@ public abstract class ItemCultural extends ListaDeItens implements UsaLista {
     public void setIdioma(String idioma) {
         this.idioma = idioma;
     }
-
-
-    @Override
-    public void cadastrar(ItemCultural item) {
-        getListaDeItens().add(item);
-    }
-
-    @Override
-    public void buscar(String titulo) {
-
-        boolean contem = false;
-        for (ItemCultural i : getListaDeItens()) {
-            if (nome.equals(i.getNome())) {
-                System.out.println(i);
-                contem = true;
-            }
-        }
-        if (!contem)
-            System.out.println("Não existe item Cultural cadastrado com esse Nome! ");
-    }
-
-    @Override
-    public void remover(String titulo) {
-        for (ItemCultural i : getListaDeItens()) {
-            if (nome.equals(i.getNome())) {
-                getListaDeItens().remove(i);
-            }
-        }
-    }
-
-    @Override
-    public void imprimir() {
-        for (ItemCultural i : getListaDeItens()) {
-        }
-    }
-
 
     @Override
     public String toString() {

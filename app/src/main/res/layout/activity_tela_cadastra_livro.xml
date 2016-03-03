@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.breno.novocurso.telaCadastraLivro">
+    tools:context=".TelaCadastraLivro">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -35,6 +35,22 @@
                 android:layout_height="wrap_content"
                 android:hint="Gênero:" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Prioridade: "
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerLivro"
+                android:layout_gravity="center_horizontal"
+                android:entries="@array/valoresSpinner"
+                android:prompt="@string/tituloSpinner" />
+
             <EditText
                 android:id="@+id/ano"
                 android:layout_width="match_parent"
@@ -59,19 +75,19 @@
                 android:layout_height="wrap_content"
                 android:hint="Idioma:" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Avaliação:"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="Lido"
+                android:id="@+id/checkBoxLivro"
+                android:layout_gravity="center_horizontal" />
 
             <RatingBar
-                android:id="@+id/avaliacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+                android:id="@+id/avaliacao"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/editora"

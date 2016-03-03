@@ -1,6 +1,8 @@
 package com.example.breno.seenme;
 
-public class Filme extends ItemCultural {
+import java.io.Serializable;
+
+public class Filme extends ItemCultural implements Serializable{
     private String duracao;
     private String elenco;
     private String produtora;
@@ -14,6 +16,10 @@ public class Filme extends ItemCultural {
 
     public String getDuracao() {
         return duracao;
+    }
+
+    public String getLegenda(){
+        return legenda;
     }
 
     public void setDuracao(String duracao) {

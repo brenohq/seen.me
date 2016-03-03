@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.breno.novocurso.telaCadastraFilme">
+    tools:context=".TelaCadastraFilme">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true">
@@ -33,6 +33,21 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/genero"
                 android:hint="Gênero:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Prioridade: "
+                android:id="@+id/textView2"
+                android:layout_gravity="center_horizontal" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerFilme"
+                android:entries="@array/valoresSpinner"
+                android:prompt="@string/tituloSpinner" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -58,19 +73,19 @@
                 android:id="@+id/idioma"
                 android:hint="Idioma:" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <CheckBox
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Avaliação:"
-                android:id="@+id/textoAvaliacao"
-                android:gravity="center_horizontal" />
+                android:text="Assistido"
+                android:id="@+id/checkBoxFilme"
+                android:layout_gravity="left|center_horizontal" />
 
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/avaliacao"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
 
             <EditText
                 android:layout_width="match_parent"
