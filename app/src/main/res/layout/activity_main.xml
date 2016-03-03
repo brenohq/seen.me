@@ -32,18 +32,14 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ver Itens Cadastrados"
         android:id="@+id/botaoVerItensCadastrados"
         android:onClick="startCadastrados"
-        android:layout_marginBottom="76dp"
+        android:layout_alignWithParentIfMissing="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="true"
-        android:layout_alignWithParentIfMissing="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,8 +50,7 @@
         android:textAlignment="center"
         android:password="false"
         android:phoneNumber="false"
-        android:textSize="120px"
-        android:layout_marginTop="113dp"
+        android:textSize="80px"
         android:textColorHighlight="#3f51b4"
         android:textColorHint="#3f51b4"
         android:textColorLink="#3f51b4"
@@ -64,4 +59,11 @@
         android:typeface="monospace"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listaOrdenada"
+        android:layout_above="@+id/botaoCadastrarFilme"
+        android:layout_below="@+id/textView4" />
 </RelativeLayout>

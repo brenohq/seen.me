@@ -4,15 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,8 +15,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ListView listaOrdenada = (ListView) findViewById(R.id.listaOrdenada);
+        listaOrdenada.setClickable(true);
 
         RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
+        final ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+        ListView listView = (ListView) findViewById(R.id.listaOrdenada);
+        listView.setClickable(true);
+        listView.setAdapter(arrayAdapter);
 
         /*try {
             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("arquivo.txt"));

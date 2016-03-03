@@ -19,4 +19,8 @@ public class ListaDeItensSingleton implements Serializable{
     public List<ItemCultural> getListaDeItensCulturais() {
         return this.listaDeItensCulturais;
     }
+
+    public void setListaDeItensCulturais(List<ItemCultural> lista){
+        this.listaDeItensCulturais = lista;
+    }
 }
