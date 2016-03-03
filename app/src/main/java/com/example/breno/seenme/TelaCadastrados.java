@@ -1,14 +1,20 @@
 package com.example.breno.seenme;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.Toast;
+
 
 public class TelaCadastrados extends Activity {
     @Override
@@ -16,6 +22,7 @@ public class TelaCadastrados extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrados);
         final String[] consumido = new String[1];
+
 
         ListView listView = (ListView) findViewById(R.id.listaDeItensCadastrados);
         listView.setClickable(true);
@@ -26,10 +33,10 @@ public class TelaCadastrados extends Activity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(TelaCadastrados.this);
-                builder.setTitle(arrayAdapter.getItem(position).getNome());
+                AlertDialog.Builder firstBuilder = new AlertDialog.Builder(TelaCadastrados.this);
+                firstBuilder.setTitle(arrayAdapter.getItem(position).getNome());
 
                 if (regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).isConsumido()) {
                     consumido[0] = " Sim";
@@ -42,6 +49,7 @@ public class TelaCadastrados extends Activity {
                         "Ano: " + regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).getAno() + "\n" +
                         "Autor: " + regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).getAutor() + "\n" +
                         "Descrição: " + regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).getDescricao() + "\n" +
+                        "Idioma: " + regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).getIdioma() + "\n" +
                         "Avaliação: " + regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).getAvaliacao() + "\n" +
                         "Consumido:" + consumido[0] + "\n";
 
@@ -52,34 +60,70 @@ public class TelaCadastrados extends Activity {
                             "Produtora: " + ((Filme) regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position)).getProdutora() + "\n" +
                             "Formato: " + ((Filme) regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position)).getFormato() + "\n" +
                             "Legenda: " + ((Filme) regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position)).getLegenda();
-
-
-                    builder.setIcon(R.drawable.iconefilme);
+                    firstBuilder.setIcon(R.drawable.iconefilme);
                 }
 
                 if (regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position) instanceof Livro) {
                     textoComDetalhes = textoComDetalhes +
                             "Editora: " + ((Livro) regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position)).getEditora() + "\n" +
                             "Edição: " + ((Livro) regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position)).getEdicao();
-                    builder.setIcon(R.drawable.rsz_book);
+                    firstBuilder.setIcon(R.drawable.rsz_book);
                 }
 
-                builder.setMessage(textoComDetalhes);
+                firstBuilder.setMessage(textoComDetalhes);
+                final String labelEditar, labelToast;
 
-                builder.setNeutralButton("Editar", new DialogInterface.OnClickListener() {
+
+                if (regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).isConsumido()) {
+                    labelEditar = "Marcar como não consumido";
+                    labelToast = "Não!";
+
+                } else {
+                    labelEditar = "Marcar como consumido";
+                    labelToast = "Sim!";
+                }
+
+                firstBuilder.setNeutralButton(labelEditar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(TelaCadastrados.this, "clicou em editar!", Toast.LENGTH_SHORT).show();
+
+                        if (regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).isConsumido()) {
+                            regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setConsumido(false);
+                        } else {
+                            regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setConsumido(true);
+
+                            /*AlertDialog.Builder secondBuilder = new AlertDialog.Builder(TelaCadastrados.this);
+                            secondBuilder.setTitle("Avalie este item!");
+
+                            secondBuilder.setView(R.layout.layout_alert_dialog_avaliacao);
+                            final RatingBar reAvalia = (RatingBar) findViewById(R.id.reAvalia);
+
+                            secondBuilder.setNeutralButton("Ok2", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    arrayAdapter.getItem(position).setAvaliacao(reAvalia.getRating());
+                                }
+                            });
+
+                            secondBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setAvaliacao(reAvalia.getRating());
+                                }
+                            });
+                            secondBuilder.show();*/
+                        }
+                        Toast.makeText(TelaCadastrados.this, "Status de consumido alterado para: " + labelToast, Toast.LENGTH_SHORT).show();
                     }
                 });
 
-                builder.setNegativeButton("Remover Item", new DialogInterface.OnClickListener() {
+                firstBuilder.setNegativeButton("Remover Item", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         arrayAdapter.remove(arrayAdapter.getItem(position));
                     }
                 });
-                builder.show();
+                firstBuilder.show();
             }
         });
     }

@@ -89,30 +89,6 @@ public abstract class ItemCultural implements Serializable {
         this.avaliacao = avaliacao;
     }
 
-    public String getProtagonistas() {
-        return protagonistas;
-    }
-
-    public void setProtagonistas(String protagonistas) {
-        this.protagonistas = protagonistas;
-    }
-
-    public String getProsseguidoPor() {
-        return prosseguidoPor;
-    }
-
-    public void setProsseguidoPor(String prosseguidoPor) {
-        this.prosseguidoPor = prosseguidoPor;
-    }
-
-    public String getPrecedidoPor() {
-        return precedidoPor;
-    }
-
-    public void setPrecedidoPor(String precedidoPor) {
-        this.precedidoPor = precedidoPor;
-    }
-
     public String getIdioma() {
         return idioma;
     }
