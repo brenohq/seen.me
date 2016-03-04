@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(telaCadastraFilme);
     }
 
+    public void startMainActivity(Intent view){
+        Intent mainActivity = new Intent(this, MainActivity.class);
+        startActivity(mainActivity);
+    }
+
     public void startCadastraLivro(View view) {
         Intent telaCadastraLivro = new Intent(this, TelaCadastraLivro.class);
         startActivity(telaCadastraLivro);
@@ -34,11 +39,14 @@ public class MainActivity extends AppCompatActivity {
 
         RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
-        final ArrayAdapter<ItemCultural> arrayAdapterOrdenado = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturaisOrdenados());
+        final ArrayAdapter<ItemCultural> arrayAdapterOrdenado = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
 
         ListView listView = (ListView) findViewById(R.id.listaOrdenada);
-        listView.setClickable(true);
+        listView.setClickable(false);
         listView.setAdapter(arrayAdapterOrdenado);
+        arrayAdapterOrdenado.notifyDataSetChanged();
+
+
 
         /*try {
             // Save the list of entries to internal storage
@@ -61,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }*/
+    }
+
+    @Override
+    public void onBackPressed (){
+        Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        startMainActivity(retornaMainActivity);
     }
 
  /*   @Override

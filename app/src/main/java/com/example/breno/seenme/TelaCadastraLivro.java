@@ -60,4 +60,10 @@ public class TelaCadastraLivro extends AppCompatActivity {
                     }
                 });
     }
+
+    @Override
+    public void onBackPressed (){
+        Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(retornaMainActivity);
+    }
 }

@@ -3,6 +3,7 @@ package com.example.breno.seenme;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +25,7 @@ public class TelaCadastrados extends Activity {
         final RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
         final ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+        arrayAdapter.notifyDataSetChanged();
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -116,10 +118,17 @@ public class TelaCadastrados extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         arrayAdapter.remove(arrayAdapter.getItem(position));
+                        arrayAdapter.notifyDataSetChanged();
                     }
                 });
                 firstBuilder.show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed (){
+        Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(retornaMainActivity);
     }
 }

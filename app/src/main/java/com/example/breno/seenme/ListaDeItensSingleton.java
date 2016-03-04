@@ -8,8 +8,6 @@ import java.util.List;
 public class ListaDeItensSingleton implements Serializable {
     private List<ItemCultural> listaDeItensCulturais = new ArrayList<>();
 
-    private ArrayList listaDeItensCulturaisOrdenados = new ArrayList<>();
-
     private static ListaDeItensSingleton ourInstance = new ListaDeItensSingleton();
 
     public static ListaDeItensSingleton getInstance() {
@@ -20,35 +18,15 @@ public class ListaDeItensSingleton implements Serializable {
     }
 
     public List<ItemCultural> getListaDeItensCulturais() {
+        ordenar(this.listaDeItensCulturais);
         return this.listaDeItensCulturais;
-    }
-
-    public ArrayList getListaDeItensCulturaisOrdenados() {
-        return this.listaDeItensCulturaisOrdenados;
     }
 
     public void setListaDeItensCulturais(List<ItemCultural> lista) {
         this.listaDeItensCulturais = lista;
     }
 
-    public void setListaDeItensCulturaisOrdenados(List<ItemCultural> lista) {
-
-        ArrayList<ItemCultural> copiaLista = new ArrayList<>();
-        for (ItemCultural i : lista) {
-            copiaLista.add(i);
-        }
-        ordenar(copiaLista);
-
-        for(int i = 0; i < copiaLista.size(); i++){
-            if(copiaLista.get(i).isConsumido()){
-                copiaLista.remove(i);
-            }
-        }
-
-        this.listaDeItensCulturaisOrdenados = (ArrayList) copiaLista;
-    }
-
-    public void ordenar(ArrayList<ItemCultural> array) {
+    public void ordenar(List<ItemCultural> array) {
         int i;
         boolean a = true;
         while (a) {
