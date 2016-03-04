@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(telaCadastraFilme);
     }
 
-    public void startMainActivity(Intent view){
+    public void startMainActivity(Intent view) {
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
@@ -39,12 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
         RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
-        final ArrayAdapter<ItemCultural> arrayAdapterOrdenado = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+
+        final CustomAdapter myAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais(), CustomAdapter.VIEW_TYPE_MAINACTIVITY);
+
+        //final ArrayAdapter<ItemCultural> myAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+
+        //CustomAdapter myAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais() ,CustomAdapter.VIEW_TYPE_MAINACTIVITY);
+        //final ArrayAdapter<ItemCultural> arrayAdapterOrdenado = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
 
         ListView listView = (ListView) findViewById(R.id.listaOrdenada);
         listView.setClickable(false);
-        listView.setAdapter(arrayAdapterOrdenado);
-        arrayAdapterOrdenado.notifyDataSetChanged();
+        listView.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
 
 
 
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed (){
+    public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startMainActivity(retornaMainActivity);
     }

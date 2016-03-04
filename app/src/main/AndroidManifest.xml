@@ -16,9 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaCadastraFilme"></activity>
-        <activity android:name=".TelaCadastraLivro"></activity>
-        <activity android:name=".TelaCadastrados"></activity>
+        <activity android:name=".TelaCadastraFilme"/>
+        <activity android:name=".TelaCadastraLivro"/>
+        <activity android:name=".TelaCadastrados"/>
     </application>
+
+
 
 </manifest>

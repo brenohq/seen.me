@@ -24,7 +24,11 @@ public class TelaCadastrados extends Activity {
         listView.setClickable(true);
         final RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
-        final ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+        final CustomAdapter arrayAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais(), CustomAdapter.VIEW_TYPE_TELACADAS);
+
+        //final ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
+        //final CustomAdapter arrayAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1,regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais() , CustomAdapter.VIEW_TYPE_TELACADAS);
+
         arrayAdapter.notifyDataSetChanged();
         listView.setAdapter(arrayAdapter);
 
@@ -127,7 +131,7 @@ public class TelaCadastrados extends Activity {
     }
 
     @Override
-    public void onBackPressed (){
+    public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(retornaMainActivity);
     }

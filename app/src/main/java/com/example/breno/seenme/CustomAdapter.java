@@ -1,32 +1,108 @@
+/*
 package com.example.breno.seenme;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends ArrayAdapter<ItemCultural> {
 
-    public CustomAdapter(Context context, int textViewResourceId) {
+    public static final int VIEW_TYPE_MAINACTIVITY = 124; // or some random int.
+    public static final int VIEW_TYPE_TELACADAS = 125; // or some random int.
+
+    private int viewType;
+    List<ItemCultural> lista;
+
+    public CustomAdapter(Context context, int textViewResourceId, int viewType) {
         super(context, textViewResourceId);
+        this.viewType = viewType;
     }
 
-    public CustomAdapter(Context context, int resource, List<ItemCultural> items) {
+    public CustomAdapter(Context context, int resource, List<ItemCultural> items, int viewType) {
         super(context, resource, items);
+        this.viewType = viewType;
+        this.lista = items;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
-        if(this.getItem(position).isConsumido()){
+        if (viewType == VIEW_TYPE_MAINACTIVITY) {
+            // DO your logic for mainActivity version of the list.
             // I Think the code to hide elements with isConsumido = true
-        }else{
-
+            if (!lista.get(position).isConsumido()) {
+                v.setVisibility(View.VISIBLE);
+            } else {
+                v.setVisibility(View.GONE);
+            }
+        } else if (viewType == VIEW_TYPE_TELACADAS) {
+            // DO your logic for Telacadas version of the list
+        } else {
+            // UNSUPPORTED VIEW TYPE.
         }
-
         return v;
     }
+}*/
 
+package com.example.breno.seenme;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class CustomAdapter extends ArrayAdapter<ItemCultural> {
+
+    public static final int VIEW_TYPE_MAINACTIVITY = 124; // or some random int.
+    public static final int VIEW_TYPE_TELACADAS = 125; // or some random int.
+
+    private int viewType;
+    List<ItemCultural> lista;
+    private final LayoutInflater mInflater;
+    private int resource;
+
+    public CustomAdapter(Context context, int textViewResourceId, int viewType) {
+        super(context, textViewResourceId);
+        this.viewType = viewType;
+        mInflater = LayoutInflater.from(context);
+    }
+
+    public CustomAdapter(Context context, int resource, List<ItemCultural> items, int viewType) {
+        super(context, resource, items);
+        this.viewType = viewType;
+        this.lista = items;
+        mInflater = LayoutInflater.from(context);
+        this.resource = resource;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View v;
+        if (convertView == null) {
+            v = mInflater.inflate(resource, parent, false);
+        } else {
+            v = convertView;
+        }
+        if (viewType == VIEW_TYPE_MAINACTIVITY) {
+            if (lista.get(position).isConsumido()) {
+                v.setVisibility(View.INVISIBLE);
+            } else {
+                v.setVisibility(View.VISIBLE);
+                ((TextView) v).setText(lista.get(position).toString());
+            }
+        } else if (viewType == VIEW_TYPE_TELACADAS) {
+            ((TextView) v).setText(lista.get(position).toString());
+        } else {
+            // Caso uma Tela de cadastro de séries fosse implementada, o código viria aqui.
+        }
+        return v;
+    }
 }
