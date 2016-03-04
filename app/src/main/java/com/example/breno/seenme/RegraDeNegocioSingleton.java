@@ -31,6 +31,7 @@ public class RegraDeNegocioSingleton {
         filme.setPrioridade(prioridade);
         filme.setConsumido(isChecked);
         getListaDeItensSingleton().getListaDeItensCulturais().add(filme);
+        getListaDeItensSingleton().setListaDeItensCulturaisOrdenados(getListaDeItensSingleton().getListaDeItensCulturais());
     }
 
     public void cadastrarLivro(String nomeDoLivro,String genero,String ano,String autor,String descricao,String idioma,String editora,String edicao,
