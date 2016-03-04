@@ -6,7 +6,6 @@ public class Filme extends ItemCultural implements Serializable{
     private String duracao;
     private String elenco;
     private String produtora;
-    private String qualidade;
     private String formato;
     private String legenda;
 
@@ -50,23 +49,7 @@ public class Filme extends ItemCultural implements Serializable{
         this.formato = formato;
     }
 
-    public String getQualidade() {
-        return qualidade;
-    }
-
-    public void setQualidade(String qualidade) {
-        this.qualidade = qualidade;
-    }
-
-    public String isLegenda() {
-        return legenda;
-    }
-
     public void setLegenda(String legenda) {
         this.legenda = legenda;
-    }
-
-    public String exibeDetalhes() {
-        return this.getDuracao() + ". " + this.getFormato() + " [$" + this.getProdutora() + "]";
     }
 }

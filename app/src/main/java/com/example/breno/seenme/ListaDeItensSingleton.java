@@ -1,7 +1,5 @@
 package com.example.breno.seenme;
 
-import android.widget.ArrayAdapter;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;

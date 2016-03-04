@@ -8,13 +8,9 @@ public abstract class ItemCultural implements Serializable {
     private String ano;
     private String autor;
     private String descricao;
-    private String classificacaoIndicativa;
     private float avaliacao;
     private int prioridade;
     private boolean consumido;
-    private String protagonistas;
-    private String precedidoPor;
-    private String prosseguidoPor;
     private String idioma;
 
     public String getNome() {
@@ -55,14 +51,6 @@ public abstract class ItemCultural implements Serializable {
 
     public void setAutor(String autor) {
         this.autor = autor;
-    }
-
-    public String getClassificacaoIndicativa() {
-        return classificacaoIndicativa;
-    }
-
-    public void setClassificacaoIndicativa(String classificacaoIndicativa) {
-        this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
     public int getPrioridade() {
