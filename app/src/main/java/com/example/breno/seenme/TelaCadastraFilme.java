@@ -45,9 +45,9 @@ public class TelaCadastraFilme extends AppCompatActivity {
         checkBoxFilme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBoxFilme.isChecked()){
+                if (checkBoxFilme.isChecked()) {
                     avaliacao.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     avaliacao.setVisibility(View.INVISIBLE);
                 }
             }
@@ -59,14 +59,14 @@ public class TelaCadastraFilme extends AppCompatActivity {
                         regraDeNegocioSingleton.cadastrarFilme(nomeDoFilme.getText().toString(), genero.getText().toString(), ano.getText().toString(),
                                 autor.getText().toString(), descricao.getText().toString(), idioma.getText().toString(), duracao.getText().toString(),
                                 elenco.getText().toString(), produtora.getText().toString(), formato.getText().toString(), legenda.getText().toString(),
-                                avaliacao.getRating(), spinnerFilme.getSelectedItemPosition()+1, checkBoxFilme.isChecked());
+                                avaliacao.getRating(), spinnerFilme.getSelectedItemPosition() + 1, checkBoxFilme.isChecked());
                         startActivity(retornaMainActivity);
                     }
                 });
     }
 
     @Override
-    public void onBackPressed (){
+    public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(retornaMainActivity);
     }

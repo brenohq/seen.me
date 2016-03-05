@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
@@ -42,11 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         final CustomAdapter myAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais(), CustomAdapter.VIEW_TYPE_MAINACTIVITY);
 
-        //final ArrayAdapter<ItemCultural> myAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
-
-        //CustomAdapter myAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais() ,CustomAdapter.VIEW_TYPE_MAINACTIVITY);
-        //final ArrayAdapter<ItemCultural> arrayAdapterOrdenado = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
-
         ListView listView = (ListView) findViewById(R.id.listaOrdenada);
         listView.setClickable(false);
         listView.setAdapter(myAdapter);
@@ -82,17 +76,5 @@ public class MainActivity extends AppCompatActivity {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startMainActivity(retornaMainActivity);
     }
-
- /*   @Override
-    public void onDestroy(){
-        super.onDestroy();
-        try {
-            RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
-
-            InternalStorage.writeObject(this, "arquivo.txt", regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
-
-        }catch (Exception e){
-        }
-    }*/
 }
 

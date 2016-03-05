@@ -14,7 +14,7 @@ public class RegraDeNegocioSingleton {
     }
 
     public void cadastrarFilme(String nomeDoFilme, String genero, String ano, String autor, String descricao, String idioma,
-                          String duracao,String elenco,String produtora,String formato,String legenda, float avaliacao, int prioridade, boolean isChecked){
+                               String duracao, String elenco, String produtora, String formato, String legenda, float avaliacao, int prioridade, boolean isChecked) {
         Filme filme = new Filme();
         filme.setNome(nomeDoFilme);
         filme.setGenero(genero);
@@ -33,8 +33,8 @@ public class RegraDeNegocioSingleton {
         getListaDeItensSingleton().getListaDeItensCulturais().add(filme);
     }
 
-    public void cadastrarLivro(String nomeDoLivro,String genero,String ano,String autor,String descricao,String idioma,String editora,String edicao,
-                               float avaliacao, int prioridade, boolean isChecked){
+    public void cadastrarLivro(String nomeDoLivro, String genero, String ano, String autor, String descricao, String idioma, String editora, String edicao,
+                               float avaliacao, int prioridade, boolean isChecked) {
         Livro livro = new Livro();
         livro.setNome(nomeDoLivro);
         livro.setGenero(genero);

@@ -42,9 +42,9 @@ public class TelaCadastraLivro extends AppCompatActivity {
         checkBoxLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBoxLivro.isChecked()){
+                if (checkBoxLivro.isChecked()) {
                     avaliacao.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     avaliacao.setVisibility(View.INVISIBLE);
                 }
             }
@@ -55,14 +55,14 @@ public class TelaCadastraLivro extends AppCompatActivity {
                     public void onClick(View view) {
                         regraDeNegocioSingleton.cadastrarLivro(nomeDoLivro.getText().toString(), genero.getText().toString(), ano.getText().toString(),
                                 autor.getText().toString(), descricao.getText().toString(), idioma.getText().toString(), editora.getText().toString(),
-                                edicao.getText().toString(), avaliacao.getRating(), spinnerLivro.getSelectedItemPosition()+1, checkBoxLivro.isChecked());
+                                edicao.getText().toString(), avaliacao.getRating(), spinnerLivro.getSelectedItemPosition() + 1, checkBoxLivro.isChecked());
                         startActivity(retornaMainActivity);
                     }
                 });
     }
 
     @Override
-    public void onBackPressed (){
+    public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(retornaMainActivity);
     }

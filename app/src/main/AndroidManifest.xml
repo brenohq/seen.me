@@ -8,19 +8,17 @@
         android:label="seen.me"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaCadastraFilme"/>
-        <activity android:name=".TelaCadastraLivro"/>
-        <activity android:name=".TelaCadastrados"/>
+        <activity android:name=".TelaCadastraFilme" />
+        <activity android:name=".TelaCadastraLivro" />
+        <activity android:name=".TelaCadastrados" />
     </application>
-
 
 
 </manifest>

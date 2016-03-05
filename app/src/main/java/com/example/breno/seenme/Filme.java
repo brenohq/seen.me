@@ -2,7 +2,7 @@ package com.example.breno.seenme;
 
 import java.io.Serializable;
 
-public class Filme extends ItemCultural implements Serializable{
+public class Filme extends ItemCultural implements Serializable {
     private String duracao;
     private String elenco;
     private String produtora;
@@ -17,7 +17,7 @@ public class Filme extends ItemCultural implements Serializable{
         return duracao;
     }
 
-    public String getLegenda(){
+    public String getLegenda() {
         return legenda;
     }
 

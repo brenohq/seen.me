@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,9 +24,6 @@ public class TelaCadastrados extends Activity {
         final RegraDeNegocioSingleton regraDeNegocioSingleton = RegraDeNegocioSingleton.getInstance();
 
         final CustomAdapter arrayAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais(), CustomAdapter.VIEW_TYPE_TELACADAS);
-
-        //final ArrayAdapter<ItemCultural> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais());
-        //final CustomAdapter arrayAdapter = new CustomAdapter(this, android.R.layout.simple_list_item_1,regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais() , CustomAdapter.VIEW_TYPE_TELACADAS);
 
         arrayAdapter.notifyDataSetChanged();
         listView.setAdapter(arrayAdapter);
@@ -92,27 +88,6 @@ public class TelaCadastrados extends Activity {
                             regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setConsumido(false);
                         } else {
                             regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setConsumido(true);
-
-                            /*AlertDialog.Builder secondBuilder = new AlertDialog.Builder(TelaCadastrados.this);
-                            secondBuilder.setTitle("Avalie este item!");
-
-                            secondBuilder.setView(R.layout.layout_alert_dialog_avaliacao);
-                            final RatingBar reAvalia = (RatingBar) findViewById(R.id.reAvalia);
-
-                            secondBuilder.setNeutralButton("Ok2", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    arrayAdapter.getItem(position).setAvaliacao(reAvalia.getRating());
-                                }
-                            });
-
-                            secondBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().get(position).setAvaliacao(reAvalia.getRating());
-                                }
-                            });
-                            secondBuilder.show();*/
                         }
                         Toast.makeText(TelaCadastrados.this, "Status de consumido alterado para: " + labelToast, Toast.LENGTH_SHORT).show();
                     }

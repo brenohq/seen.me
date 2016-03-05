@@ -36,17 +36,17 @@
                 android:hint="Gênero:" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="center_horizontal"
                 android:text="Prioridade: "
-                android:id="@+id/textView3"
-                android:layout_gravity="center_horizontal" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Spinner
+                android:id="@+id/spinnerLivro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinnerLivro"
                 android:layout_gravity="center_horizontal"
                 android:entries="@array/valoresSpinner"
                 android:prompt="@string/tituloSpinner" />
@@ -76,16 +76,16 @@
                 android:hint="Idioma:" />
 
             <CheckBox
+                android:id="@+id/checkBoxLivro"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Lido"
-                android:id="@+id/checkBoxLivro"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:text="Lido" />
 
             <RatingBar
+                android:id="@+id/avaliacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/avaliacao"
                 android:layout_gravity="center_horizontal"
                 android:visibility="gone" />
 

@@ -1,53 +1,3 @@
-/*
-package com.example.breno.seenme;
-
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class CustomAdapter extends ArrayAdapter<ItemCultural> {
-
-    public static final int VIEW_TYPE_MAINACTIVITY = 124; // or some random int.
-    public static final int VIEW_TYPE_TELACADAS = 125; // or some random int.
-
-    private int viewType;
-    List<ItemCultural> lista;
-
-    public CustomAdapter(Context context, int textViewResourceId, int viewType) {
-        super(context, textViewResourceId);
-        this.viewType = viewType;
-    }
-
-    public CustomAdapter(Context context, int resource, List<ItemCultural> items, int viewType) {
-        super(context, resource, items);
-        this.viewType = viewType;
-        this.lista = items;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-        if (viewType == VIEW_TYPE_MAINACTIVITY) {
-            // DO your logic for mainActivity version of the list.
-            // I Think the code to hide elements with isConsumido = true
-            if (!lista.get(position).isConsumido()) {
-                v.setVisibility(View.VISIBLE);
-            } else {
-                v.setVisibility(View.GONE);
-            }
-        } else if (viewType == VIEW_TYPE_TELACADAS) {
-            // DO your logic for Telacadas version of the list
-        } else {
-            // UNSUPPORTED VIEW TYPE.
-        }
-        return v;
-    }
-}*/
-
 package com.example.breno.seenme;
 
 import android.content.Context;
@@ -93,7 +43,7 @@ public class CustomAdapter extends ArrayAdapter<ItemCultural> {
         }
         if (viewType == VIEW_TYPE_MAINACTIVITY) {
             if (lista.get(position).isConsumido()) {
-                v.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.GONE);
             } else {
                 v.setVisibility(View.VISIBLE);
                 ((TextView) v).setText(lista.get(position).toString());
