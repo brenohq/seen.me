@@ -27,6 +27,7 @@ public class ListaDeItensSingleton implements Serializable {
     }
 
     public void ordenar(List<ItemCultural> array) {
+
         int i;
         boolean a = true;
         while (a) {
@@ -36,6 +37,16 @@ public class ListaDeItensSingleton implements Serializable {
                     Collections.swap(array, i, i + 1);
                     a = true;
                 }
+            }
+        }
+
+        int k = 0;
+        for (i = 0; i < array.size()-k; i++) {
+            if (array.get(i).isConsumido()) {
+                ItemCultural item = array.remove(i);
+                array.add(item);
+                k++;
+                i--;
             }
         }
     }
