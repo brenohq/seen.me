@@ -10,8 +10,16 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 
+/**
+ * Interface que espera os dados tecnicos e de preferencia para um Livro
+ */
 public class TelaCadastraLivro extends AppCompatActivity {
 
+    /**
+     * Quando iniciado mostra a tela de cadastro de livro, com os dados para colocar.
+     *
+     * @param savedInstanceState instancia salva a partir da tela anterior.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final EditText nomeDoLivro, genero, ano, autor, descricao, idioma, editora, edicao;
@@ -39,6 +47,9 @@ public class TelaCadastraLivro extends AppCompatActivity {
         checkBoxLivro = (CheckBox) findViewById(R.id.checkBoxLivro);
         final Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
 
+        /**
+         * Método que exibe o campo de avaliacao, de acordo com a checkBox da tela de cadastro.
+         */
         checkBoxLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +72,9 @@ public class TelaCadastraLivro extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Quando precionamos o botao de voltar do device, volta para a tela Inicial
+     */
     @Override
     public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);

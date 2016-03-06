@@ -11,7 +11,16 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+/**
+ * Tem uma interface que mostra os itens ja cadastrados que estao dentro de uma arrayList
+ */
 public class TelaCadastrados extends Activity {
+    /**
+     * Quando iniciado mostra a tela ordenada de acordo com a prioridade do item e se for consumido ou
+     * nao.
+     *
+     * @param savedInstanceState instância salva da tela anterior.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +36,12 @@ public class TelaCadastrados extends Activity {
         arrayAdapter.notifyDataSetChanged();
         listView.setAdapter(arrayAdapter);
 
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            /**
+             * Listener para o botão de pesquisar um ItemCultural na lista
+             * @param query Texto contido no campo de pesquisa
+             */
             @Override
             public boolean onQueryTextSubmit(String query) {
                 for (int i = 0; i < regraDeNegocioSingleton.getListaDeItensSingleton().getListaDeItensCulturais().size(); i++) {
@@ -44,6 +58,10 @@ public class TelaCadastrados extends Activity {
             }
         });
 
+
+        /**
+         * Listener para para quando o usuário clicar em algum item cadastrado.
+         */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(AdapterView<?> parent, final View view, final int position,
@@ -54,12 +72,22 @@ public class TelaCadastrados extends Activity {
         );
     }
 
+    /**
+     * Quando precionamos o botao de voltar do device, volta para a tela Inicial
+     */
     @Override
     public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(retornaMainActivity);
     }
 
+    /**
+     * Mostra todos os detalhes tecnicos dos itens culturais já cadastrados
+     *
+     * @param position                posição do item na lista de itens cadastrados
+     * @param arrayAdapter            adapter que está exibindo a lista de itens
+     * @param regraDeNegocioSingleton regra de negócio. Poderia ser instanciada uma nova regra de negócio dentro da função, pois ela segue o design pattern Singleton.
+     */
     public void criaDialog(final int position, final CustomAdapter arrayAdapter, final RegraDeNegocioSingleton regraDeNegocioSingleton) {
         String[] consumido = new String[1];
 

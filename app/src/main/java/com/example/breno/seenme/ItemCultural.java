@@ -1,8 +1,9 @@
 package com.example.breno.seenme;
 
-import java.io.Serializable;
-
-public abstract class ItemCultural implements Serializable {
+/**
+ * Classe pai de Filme e Livro, cuja tem alguns atributos gerais das outras classes.
+ */
+public abstract class ItemCultural {
     private String nome;
     private String genero;
     private String ano;
@@ -85,6 +86,9 @@ public abstract class ItemCultural implements Serializable {
         this.idioma = idioma;
     }
 
+    /**
+     * Método usado para exibir o nome de cada item nas listViews do aplicativo
+     */
     @Override
     public String toString() {
         return getNome();

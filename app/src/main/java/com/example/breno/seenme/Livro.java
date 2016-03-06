@@ -1,6 +1,9 @@
 package com.example.breno.seenme;
 
-public class Livro extends ItemCultural{
+/**
+ * Classe que tem os atributos de um livro.
+ */
+public class Livro extends ItemCultural {
     private String edicao;
     private String editora;
 

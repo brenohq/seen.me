@@ -10,8 +10,15 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 
+/**
+ * Interface que espera os dados tecnicos e de preferencia para um Filme
+ */
 public class TelaCadastraFilme extends AppCompatActivity {
-
+    /**
+     * Quando iniciado mostra a tela de cadastro de filme, com os dados para colocar.
+     *
+     * @param savedInstanceState instancia salva a partir da tela anterior.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final EditText nomeDoFilme, genero, ano, autor, descricao, idioma, duracao, elenco, produtora, formato, legenda;
@@ -65,6 +72,9 @@ public class TelaCadastraFilme extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Quando precionamos o botao de voltar do device, volta para a tela Inicial
+     */
     @Override
     public void onBackPressed() {
         Intent retornaMainActivity = new Intent(getApplicationContext(), MainActivity.class);

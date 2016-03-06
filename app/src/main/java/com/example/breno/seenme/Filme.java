@@ -2,7 +2,10 @@ package com.example.breno.seenme;
 
 import java.io.Serializable;
 
-public class Filme extends ItemCultural implements Serializable {
+/**
+ * Classe que tem os atributos de um filme.
+ */
+public class Filme extends ItemCultural {
     private String duracao;
     private String elenco;
     private String produtora;
