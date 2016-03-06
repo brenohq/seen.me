@@ -56,7 +56,7 @@
         android:textColorHint="#3f51b4"
         android:textColorLink="#3f51b4"
         android:textIsSelectable="true"
-        android:textSize="80px"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:typeface="monospace" />
 
@@ -65,5 +65,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/botaoCadastrarFilme"
-        android:layout_below="@+id/textView4" />
+        android:layout_below="@+id/textView4"
+        android:headerDividersEnabled="false" />
 </RelativeLayout>

@@ -1,10 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"><![CDATA[
 
     tools:context="com.example.breno.seenme.TelaCadastrados">
+
+
+
+
+
+    ]]>
 
     <ListView
         android:id="@+id/listaDeItensCadastrados"
@@ -12,5 +18,12 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:headerDividersEnabled="true" />
-</LinearLayout>
+        android:headerDividersEnabled="true"
+        android:layout_below="@+id/pesquisaItem" />
+
+    <SearchView
+        android:id="@+id/pesquisaItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end" />
+</RelativeLayout>
