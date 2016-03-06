@@ -22,10 +22,6 @@ public class ListaDeItensSingleton implements Serializable {
         return this.listaDeItensCulturais;
     }
 
-    public void setListaDeItensCulturais(List<ItemCultural> lista) {
-        this.listaDeItensCulturais = lista;
-    }
-
     public void ordenar(List<ItemCultural> array) {
 
         int i;

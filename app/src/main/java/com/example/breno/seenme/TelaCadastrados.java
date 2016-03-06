@@ -10,14 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 public class TelaCadastrados extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrados);
         final String[] consumido = new String[1];
-
 
         ListView listView = (ListView) findViewById(R.id.listaDeItensCadastrados);
         listView.setClickable(true);

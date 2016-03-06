@@ -1,8 +1,6 @@
 package com.example.breno.seenme;
 
-import java.io.Serializable;
-
-public class Livro extends ItemCultural implements Serializable {
+public class Livro extends ItemCultural{
     private String edicao;
     private String editora;
 

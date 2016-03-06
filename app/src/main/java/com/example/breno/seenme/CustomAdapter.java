@@ -11,19 +11,13 @@ import java.util.List;
 
 public class CustomAdapter extends ArrayAdapter<ItemCultural> {
 
-    public static final int VIEW_TYPE_MAINACTIVITY = 124; // or some random int.
-    public static final int VIEW_TYPE_TELACADAS = 125; // or some random int.
+    public static final int VIEW_TYPE_MAINACTIVITY = 124; // qualquer número inteiro.
+    public static final int VIEW_TYPE_TELACADAS = 125; // qualquer número inteiro.
 
     private int viewType;
     List<ItemCultural> lista;
     private final LayoutInflater mInflater;
     private int resource;
-
-    public CustomAdapter(Context context, int textViewResourceId, int viewType) {
-        super(context, textViewResourceId);
-        this.viewType = viewType;
-        mInflater = LayoutInflater.from(context);
-    }
 
     public CustomAdapter(Context context, int resource, List<ItemCultural> items, int viewType) {
         super(context, resource, items);

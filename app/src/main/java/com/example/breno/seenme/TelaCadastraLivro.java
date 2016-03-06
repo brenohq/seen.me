@@ -45,7 +45,7 @@ public class TelaCadastraLivro extends AppCompatActivity {
                 if (checkBoxLivro.isChecked()) {
                     avaliacao.setVisibility(View.VISIBLE);
                 } else {
-                    avaliacao.setVisibility(View.INVISIBLE);
+                    avaliacao.setVisibility(View.GONE);
                 }
             }
         });

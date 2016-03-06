@@ -1,11 +1,8 @@
 package com.example.breno.seenme;
 
-import android.content.Context;
-
 public class RegraDeNegocioSingleton {
 
     private ListaDeItensSingleton listaDeItensSingleton = new ListaDeItensSingleton();
-    private static Context context;
 
     private static RegraDeNegocioSingleton ourInstance = new RegraDeNegocioSingleton();
 
@@ -55,13 +52,5 @@ public class RegraDeNegocioSingleton {
 
     public ListaDeItensSingleton getListaDeItensSingleton() {
         return listaDeItensSingleton;
-    }
-
-    public void setListaDeItensSingleton(ListaDeItensSingleton lista){
-        this.listaDeItensSingleton = lista;
-    }
-
-    public Context getAppContext() {
-        return this.context;
     }
 }

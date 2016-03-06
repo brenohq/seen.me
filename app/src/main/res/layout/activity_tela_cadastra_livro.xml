@@ -106,6 +106,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:drawableRight="@drawable/minirsz_book"
+                android:drawablePadding="7sp"
                 android:text="Cadastrar" />
 
         </LinearLayout>
